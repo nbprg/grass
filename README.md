@@ -1,7 +1,11 @@
 <h1> Installation </h1>
 
- <p>command: </p>
-
+ <h5>command: </h5>
+`
+git clone --depth=1 https://github.com/nbprg/grass
+cd grass
+python getgrass.py
+`
 
 
 1. run command <br>
