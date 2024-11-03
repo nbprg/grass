@@ -1,13 +1,11 @@
-<h1> Installation </h1>
+<h2> Installation </h2>
 
  <h5>command: </h5>
-`
-git clone --depth=1 https://github.com/nbprg/grass
-cd grass
-python getgrass.py
-`
+<p>git clone --depth=1 https://github.com/nbprg/grass<br>
+cd grass<br>
+python getgrass.py</p>
 
-
+<h4>Follow This </h4>
 1. run command <br>
 2. open `proxy.txt` & save your proxy <br>
 3. then run `python getgrass.py` <br>
