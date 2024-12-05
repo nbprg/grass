@@ -45,7 +45,7 @@ async def connect_to_wss(socks5_proxy, user_id):
                 while True:
                     response = await websocket.recv()
                     message = json.loads(response)
-                    #logger.info(message)
+                    logger.info(message)
                     if message.get("action") == "AUTH":
                         auth_response = {
                             "id": message["id"],
@@ -60,12 +60,12 @@ async def connect_to_wss(socks5_proxy, user_id):
                                 "extension_id": "lkbnfiajjmbhnfledhphioinpickokdi"
                             }
                         }
-                        #logger.debug(auth_response)
+                        logger.debug(auth_response)
                         await websocket.send(json.dumps(auth_response))
 
                     elif message.get("action") == "PONG":
                         pong_response = {"id": message["id"], "origin_action": "PONG"}
-                        #logger.debug(pong_response)
+                        logger.debug(pong_response)
                         await websocket.send(json.dumps(pong_response))
         except Exception as e:
             #logger.error(e)
