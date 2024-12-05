@@ -69,7 +69,7 @@ async def connect_to_wss(socks5_proxy, user_id):
 
 async def main():
     #find user_id on the site in conlose localStorage.getItem('userId') (if you can't get it, write allow pasting)
-    _user_id = input('Please Enter your user ID: ')
+    _user_id = "2oAZ2uwDNvbJ4CyLdjwgUdi1x3p" #input('Please Enter your user ID: ')
     url = 'https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=http&proxy_format=protocolipport&format=text&timeout=20000'
     local_proxies = requests.get(url).text.splitlines()
     """    local_proxies = []
