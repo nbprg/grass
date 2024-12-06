@@ -8,11 +8,9 @@ import requests
 import shutil
 from loguru import logger
 from websockets_proxy import Proxy, proxy_connect
-from fake_useragent import UserAgent
 
 async def connect_to_wss(socks5_proxy, user_id):
-    user_agent = UserAgent(os=['windows', 'macos', 'linux'], browsers='chrome')
-    random_user_agent = user_agent.random
+    random_user_agent = ''
     device_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, socks5_proxy))
     logger.info(device_id)
     while True:
