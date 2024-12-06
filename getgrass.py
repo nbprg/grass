@@ -13,7 +13,7 @@ try:
    from websockets_proxy import Proxy, proxy_connect
    from fake_useragent import UserAgent
 except:
-   os.system('py -m pip install requests logger websockets_proxy fake_useragent') 
+   os.system('py -m pip install requests loguru websockets_proxy fake_useragent') 
    from loguru import logger
    from websockets_proxy import Proxy, proxy_connect
    from fake_useragent import UserAgent
