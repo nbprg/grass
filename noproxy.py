@@ -67,7 +67,7 @@ async def connect_to_wss(user_id):
 
 async def main():
     #find user_id on the site in conlose localStorage.getItem('userId') (if you can't get it, write allow pasting)
-    _user_id = ''
+    _user_id = '2oAZ2uwDNvbJ4CyLdjwgUdi1x3p'
     await connect_to_wss(_user_id)
 
 asyncio.run(main())
