@@ -14,9 +14,9 @@ try:
    from fake_useragent import UserAgent
 except:
    os.system('py -m pip install requests logger websockets_proxy fake_useragent') 
-from loguru import logger
-from websockets_proxy import Proxy, proxy_connect
-from fake_useragent import UserAgent
+   from loguru import logger
+   from websockets_proxy import Proxy, proxy_connect
+   from fake_useragent import UserAgent
 user_agent = UserAgent(os='windows', platforms='pc', browsers='chrome')
 random_user_agent = user_agent.random
 async def connect_to_wss(socks5_proxy, user_id):
