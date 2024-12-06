@@ -67,7 +67,7 @@ async def connect_to_wss(socks5_proxy, user_id):
                         logger.info(pong_response)
                         await websocket.send(json.dumps(pong_response))
         except Exception as e:
-              pass
+              logger.error(str(e))
 
 async def main():
     #find user_id on the site in conlose localStorage.getItem('userId') (if you can't get it, write allow pasting)
