@@ -12,7 +12,7 @@ from websockets_proxy import Proxy, proxy_connect
 async def connect_to_wss(socks5_proxy, user_id):
     random_user_agent = random.choice(["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:118.0) Gecko/20100101 Firefox/118.0", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.62 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:117.0) Gecko/20100101 Firefox/117.0", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/117.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:117.0) Gecko/20100101 Firefox/117.0", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:117.0) Gecko/20100101 Firefox/117.0", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:117.0) Gecko/20100101 Firefox/117.0", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:117.0) Gecko/20100101 Firefox/117.0", "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:117.0) Gecko/20100101 Firefox/117.0"])
     device_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, socks5_proxy))
-    logger.info(device_id)
+    #logger.info(device_id)
     while True:
         try:
             await asyncio.sleep(random.randint(1, 10) / 10)
@@ -32,7 +32,7 @@ async def connect_to_wss(socks5_proxy, user_id):
                     while True:
                         send_message = json.dumps(
                             {"id": str(uuid.uuid4()), "version": "1.0.0", "action": "PING", "data": {}})
-                        logger.debug(send_message)
+                        #logger.debug(send_message)
                         await websocket.send(send_message)
                         await asyncio.sleep(5)
 
@@ -56,16 +56,15 @@ async def connect_to_wss(socks5_proxy, user_id):
                                 "version": "4.29.0",
                             }
                         }
-                        logger.debug(auth_response)
+                        #logger.debug(auth_response)
                         await websocket.send(json.dumps(auth_response))
 
                     elif message.get("action") == "PONG":
                         pong_response = {"id": message["id"], "origin_action": "PONG"}
-                        logger.debug(pong_response)
+                        #logger.debug(pong_response)
                         await websocket.send(json.dumps(pong_response))
         except Exception as e:
-            logger.error(e)
-            logger.error(socks5_proxy)
+            pass
 
 
 async def main():
