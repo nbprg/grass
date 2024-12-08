@@ -42,7 +42,9 @@ async def connect_to_wss(socks5_proxy, user_id):
                 while True:
                     response = await websocket.recv()
                     message = json.loads(response)
-                    logger.info(message)
+                    x = int(random.randint(1,40)) 
+                    if x == 15:
+                        logger.info(message) #just for saving data 
                     if message.get("action") == "AUTH":
                         auth_response = {
                             "id": message["id"],
